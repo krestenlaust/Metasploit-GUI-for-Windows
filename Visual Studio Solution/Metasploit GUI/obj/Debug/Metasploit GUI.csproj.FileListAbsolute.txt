@@ -1,0 +1,10 @@
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.csprojResolveAssemblyReference.cache
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.Installer.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.Properties.Resources.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.csproj.GenerateResource.cache
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.csproj.CoreCompileInputs.cache
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\bin\Debug\Metasploit GUI.exe.config
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\bin\Debug\Metasploit GUI.exe
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\bin\Debug\Metasploit GUI.pdb
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.exe
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.pdb
