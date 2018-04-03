@@ -16,5 +16,19 @@ namespace Metasploit_GUI
         {
             InitializeComponent();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            DebugWindow.logwrite("Loaded Main");
+        }
+
+        private void button2_Click(object sender, EventArgs e) => new CreatePayload().Show();
+
+        private void button1_Click(object sender, EventArgs e) => new RemoteAttack().Show();
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new Installer().Show();
+        }
     }
 }

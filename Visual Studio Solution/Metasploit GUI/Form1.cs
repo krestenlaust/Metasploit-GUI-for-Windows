@@ -28,10 +28,17 @@ namespace Metasploit_GUI
             UpdateDownloads();
         }
 
+        public void CreateBasicFolders()
+        {
+            Directory.CreateDirectory(systemroot + @"metagui\Extensions");
+            //Directory.CreateDirectory(systemroot + @"metagui");
+        }
+
         public void UpdateDownloads()
         {
+            
             //if (File.Exists(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System) + "Metasploit-framework")))
-            if (File.Exists(systemroot + "Metasploit-framework"))
+            if (Directory.Exists(systemroot + "metasploit-framework"))
             {
                 metasploit = true;
                 metasploitstatus.Text = "Installed";
@@ -41,6 +48,7 @@ namespace Metasploit_GUI
                 metasploit = false;
                 metasploitstatus.Text = "Not installed";
             }
+            //metasploitstatus.Text = systemroot + "metasploit-framework";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,13 +58,26 @@ namespace Metasploit_GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper")){
+            if (!Directory.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper")){
+                CreateBasicFolders();
                 //Isnt installed
+                //Directory.CreateDirectory(systemroot + @"metagui\Extensions");
             }
             else
             {
                 //Is installed
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new Main().Show();
+            this.Hide();
         }
     }
 }

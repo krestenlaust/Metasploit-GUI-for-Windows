@@ -8,3 +8,8 @@ C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\bin\Debug\Metasploit G
 C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\bin\Debug\Metasploit GUI.pdb
 C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.exe
 C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit GUI.pdb
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.Main.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.Options.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.DebugWindow.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.CreatePayload.resources
+C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_GUI.ConsoleWindow.resources
