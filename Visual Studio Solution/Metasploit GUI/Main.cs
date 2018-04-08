@@ -26,9 +26,8 @@ namespace Metasploit_GUI
 
         private void button1_Click(object sender, EventArgs e) => new RemoteAttack().Show();
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            new Installer().Show();
-        }
+        private void button3_Click(object sender, EventArgs e) => new Installer().Show();
+
+        private void button4_Click(object sender, EventArgs e) => new ScriptEditor().Show();
     }
 }

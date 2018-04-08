@@ -107,6 +107,12 @@
     <Compile Include="RemoteAttack.Designer.cs">
       <DependentUpon>RemoteAttack.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScriptEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptEditor.Designer.cs">
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +140,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScriptEditor.resx">
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
