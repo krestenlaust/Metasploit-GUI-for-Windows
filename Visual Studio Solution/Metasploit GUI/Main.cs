@@ -30,5 +30,7 @@ namespace Metasploit_GUI
         {
             new Installer().Show();
         }
+
+        private void button4_Click(object sender, EventArgs e) => new ScriptEditor().Show();
     }
 }
