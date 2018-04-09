@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Metasploit_GUI
 {
@@ -44,6 +45,34 @@ namespace Metasploit_GUI
 
         private void ScriptEditor_Load(object sender, EventArgs e)
         {
+            try
+            {
+                var PurpleArrayLength = File.ReadLines("PurpleWords.txt").Count();
+                PurpleWords = new string[PurpleArrayLength];
+            }
+            catch
+            {
+                Console.WriteLine("Missing File 'PurpleWords.txt'");
+            }
+            try
+            {
+                var GreenArrayLength = File.ReadLines("GreenWords.txt").Count();
+                GreenWords = new string[GreenArrayLength];
+            }
+            catch
+            {
+                Console.WriteLine("Missing File 'GreenWords.txt'");
+            }
+            try
+            {
+                var BlueArrayLength = File.ReadLines("BlueWords.txt").Count();
+                BlueWords = new string[BlueArrayLength];
+            }
+            catch
+            {
+                Console.WriteLine("Missing File 'BlueWords.txt'");
+            }
+            //for(int i = 0; i < File.ReadLines("Purple"))
             PurpleWords[0] = "exploit";
             PurpleWords[1] = "run";
             BlueWords[0] = "use";
