@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.metasploitstatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pythonwrapperstatus = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,15 +60,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Metasploit";
             // 
-            // label1
+            // metasploitstatus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Status:";
+            this.metasploitstatus.AutoSize = true;
+            this.metasploitstatus.Location = new System.Drawing.Point(6, 62);
+            this.metasploitstatus.Name = "metasploitstatus";
+            this.metasploitstatus.Size = new System.Drawing.Size(86, 17);
+            this.metasploitstatus.TabIndex = 2;
+            this.metasploitstatus.Text = "Not installed";
             // 
             // button1
             // 
@@ -79,14 +79,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // metasploitstatus
+            // label1
             // 
-            this.metasploitstatus.AutoSize = true;
-            this.metasploitstatus.Location = new System.Drawing.Point(6, 62);
-            this.metasploitstatus.Name = "metasploitstatus";
-            this.metasploitstatus.Size = new System.Drawing.Size(86, 17);
-            this.metasploitstatus.TabIndex = 2;
-            this.metasploitstatus.Text = "Not installed";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Status:";
             // 
             // groupBox3
             // 
@@ -141,6 +142,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.nmapstatus);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.label4);
@@ -190,6 +192,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "NOTE: you need to install the programs in their default directory";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(0, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(203, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "NMAP currently isn\'t supported";
+            // 
             // Installer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,6 +241,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }
 

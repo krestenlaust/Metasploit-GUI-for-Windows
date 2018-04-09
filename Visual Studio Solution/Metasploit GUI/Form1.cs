@@ -14,6 +14,8 @@ namespace Metasploit_GUI
 {
     public partial class Installer : Form
     {
+        public string CurrentVersionPythonWrapper;
+        public float LatestVersionPythonWrapper;
         public string systemroot = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
         public bool metasploit;
         public bool pythonwrapper;
@@ -41,14 +43,30 @@ namespace Metasploit_GUI
             if (Directory.Exists(systemroot + "metasploit-framework"))
             {
                 metasploit = true;
+                Options.metasploit = true;
                 metasploitstatus.Text = "Installed";
             }
             else
             {
                 metasploit = false;
+                Options.metasploit = false;
                 metasploitstatus.Text = "Not installed";
             }
             //metasploitstatus.Text = systemroot + "metasploit-framework";
+            if (Directory.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper"))
+            {
+                pythonwrapper = true;
+                Options.pythonwrapper = true;
+                pythonwrapperstatus.Text = "Installed";
+                //is installed
+            }
+            else
+            {
+                pythonwrapper = false;
+                Options.pythonwrapper = false;
+                pythonwrapperstatus.Text = "Not installed";
+                //Isn't installed
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,12 +78,15 @@ namespace Metasploit_GUI
         {
             if (!Directory.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper")){
                 CreateBasicFolders();
-                //Isnt installed
+                pythonwrapperstatus.Text = "Downloading...";
+                var uri = @"";
                 //Directory.CreateDirectory(systemroot + @"metagui\Extensions");
             }
             else
             {
-                //Is installed
+                pythonwrapperstatus.Text = "Checking for updates...";
+                CurrentVersionPythonWrapper = File.ReadAllText(systemroot + @"metagui\Extensions\Python-Enwrapper\version");
+                Console.WriteLine(CurrentVersionPythonWrapper);
             }
         }
 

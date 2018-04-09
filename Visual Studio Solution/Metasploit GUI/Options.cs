@@ -14,6 +14,7 @@ namespace Metasploit_GUI
     {
         static public string lhost, rhost;
         static public int lport, rport;
+        static public bool pythonwrapper, metasploit, nmap;
         static public bool WriteableConsole;
 
         private void textBox3_TextChanged(object sender, EventArgs e)

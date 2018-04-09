@@ -47,8 +47,12 @@ namespace Metasploit_GUI
         {
             try
             {
-                var PurpleArrayLength = File.ReadLines("PurpleWords.txt").Count();
-                PurpleWords = new string[PurpleArrayLength];
+                var PurpleArray = File.ReadAllLines("PurpleWords.txt");
+                PurpleWords = new string[PurpleArray.Length];
+                for (int i = 0;i < PurpleArray.Length; i++)
+                {
+                    PurpleWords[i] = PurpleArray[i];
+                }
             }
             catch
             {
@@ -56,8 +60,12 @@ namespace Metasploit_GUI
             }
             try
             {
-                var GreenArrayLength = File.ReadLines("GreenWords.txt").Count();
-                GreenWords = new string[GreenArrayLength];
+                var GreenArray = File.ReadAllLines("GreenWords.txt");
+                GreenWords = new string[GreenArray.Length];
+                for (int i = 0;i < GreenArray.Length; i++)
+                {
+                    GreenWords[i] = GreenArray[i];
+                }
             }
             catch
             {
@@ -65,17 +73,20 @@ namespace Metasploit_GUI
             }
             try
             {
-                var BlueArrayLength = File.ReadLines("BlueWords.txt").Count();
-                BlueWords = new string[BlueArrayLength];
+                var BlueArray = File.ReadAllLines("BlueWords.txt");
+                BlueWords = new string[BlueArray.Length];
+                for (int i = 0;i < BlueArray.Length; i++)
+                {
+                    BlueWords[i] = BlueArray[i];
+                }
             }
             catch
             {
                 Console.WriteLine("Missing File 'BlueWords.txt'");
             }
-            //for(int i = 0; i < File.ReadLines("Purple"))
-            PurpleWords[0] = "exploit";
-            PurpleWords[1] = "run";
-            BlueWords[0] = "use";
+            //PurpleWords[0] = "exploit";
+            //PurpleWords[1] = "run";
+            //BlueWords[0] = "use";
         }
 
         private Color colorForLine(string line)
@@ -88,11 +99,18 @@ namespace Metasploit_GUI
             }
             for(int i = 0; i < BlueWords.Length; i++)
             {
-                if (line.Contains(BlueWords[i])) return Color.SkyBlue;
+                if (line.Contains(BlueWords[i])) return Color.Blue;
+            }
+            for(int i = 0; i < GreenWords.Length; i++)
+            {
+                if (line.Contains(GreenWords[i])) return Color.Green;
             }
             return Color.Black;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
-}
+        }
+    }
 }
