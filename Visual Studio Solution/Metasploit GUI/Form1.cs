@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Net;
 
 namespace Metasploit_GUI
 {
@@ -77,9 +78,14 @@ namespace Metasploit_GUI
         private void button2_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper")){
-                CreateBasicFolders();
+                //CreateBasicFolders();
+                Directory.CreateDirectory(systemroot + @"metagui\Extensions\Python-Enwrapper");
                 pythonwrapperstatus.Text = "Downloading...";
-                var uri = @"";
+                var url = "https://github.com/kres0345/Metasploit-windows-GUI/raw/master/Extensions/Python-Enwrapper/Enwrapper.exe";
+                WebClient client = new WebClient();
+                // Hookup DownloadFileCompleted Event
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+                client.DownloadFileAsync(new Uri(url), systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe");
                 //Directory.CreateDirectory(systemroot + @"metagui\Extensions");
             }
             else
@@ -88,6 +94,11 @@ namespace Metasploit_GUI
                 CurrentVersionPythonWrapper = File.ReadAllText(systemroot + @"metagui\Extensions\Python-Enwrapper\version");
                 Console.WriteLine(CurrentVersionPythonWrapper);
             }
+        }
+
+        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            pythonwrapperstatus.Text = "Installed";
         }
 
         private void button4_Click(object sender, EventArgs e)
