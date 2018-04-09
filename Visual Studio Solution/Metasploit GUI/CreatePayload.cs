@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Metasploit_GUI
 {
     public partial class CreatePayload : Form
     {
+        public string systemroot = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
         public string filetype;
         public static string Payload;
         public CreatePayload()
@@ -97,6 +100,12 @@ namespace Metasploit_GUI
             //strCmdText = "/C msfvenom -p "+comboBox1.SelectedItem;
             Console.WriteLine(strCmdText);
             System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+            if (checkBox1.Checked)
+            {
+                string strCmdText1;
+                strCmdText1 = '"' + saveLocation.Text + '"';
+                System.Diagnostics.Process.Start(systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe", strCmdText1);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -147,6 +156,11 @@ namespace Metasploit_GUI
                 groupBox5.Enabled = false;
             }
             
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

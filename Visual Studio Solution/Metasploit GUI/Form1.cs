@@ -15,8 +15,7 @@ namespace Metasploit_GUI
 {
     public partial class Installer : Form
     {
-        public string CurrentVersionPythonWrapper;
-        public float LatestVersionPythonWrapper;
+        public float CurrentVersionPythonWrapper, LatestVersionPythonWrapper;
         public string systemroot = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
         public bool metasploit;
         public bool pythonwrapper;
@@ -79,26 +78,49 @@ namespace Metasploit_GUI
         {
             if (!Directory.Exists(systemroot + @"metagui\Extensions\Python-Enwrapper")){
                 //CreateBasicFolders();
+                /*
                 Directory.CreateDirectory(systemroot + @"metagui\Extensions\Python-Enwrapper");
                 pythonwrapperstatus.Text = "Downloading...";
                 var url = "https://github.com/kres0345/Metasploit-windows-GUI/raw/master/Extensions/Python-Enwrapper/Enwrapper.exe";
+                var url2 = "https://raw.githubusercontent.com/kres0345/Metasploit-windows-GUI/master/Extensions/Python-Enwrapper/version";
                 WebClient client = new WebClient();
-                // Hookup DownloadFileCompleted Event
                 client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
                 client.DownloadFileAsync(new Uri(url), systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe");
-                //Directory.CreateDirectory(systemroot + @"metagui\Extensions");
+                Console.WriteLine(1);
+                WebClient client2 = new WebClient();
+                client2.DownloadFile(url2, systemroot + @"metagui\Extensions\Python-Enwrapper\version");
+                */
             }
             else
             {
                 pythonwrapperstatus.Text = "Checking for updates...";
-                CurrentVersionPythonWrapper = File.ReadAllText(systemroot + @"metagui\Extensions\Python-Enwrapper\version");
+                CurrentVersionPythonWrapper = float.Parse(File.ReadAllText(systemroot + @"metagui\Extensions\Python-Enwrapper\version"));
                 Console.WriteLine(CurrentVersionPythonWrapper);
+                WebClient wc = new WebClient();
+                LatestVersionPythonWrapper = float.Parse(wc.DownloadString("https://raw.githubusercontent.com/kres0345/Metasploit-windows-GUI/master/Extensions/Python-Enwrapper/version"));
+                if (CurrentVersionPythonWrapper < LatestVersionPythonWrapper)
+                {
+                    pythonwrapperstatus.Text = "Found update, updating";
+                    DownloadPythonWrapper();
+                }
             }
         }
-
         void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             pythonwrapperstatus.Text = "Installed";
+        }
+
+        public void DownloadPythonWrapper()
+        {
+            Directory.CreateDirectory(systemroot + @"metagui\Extensions\Python-Enwrapper");
+            pythonwrapperstatus.Text = "Downloading...";
+            var url = "https://github.com/kres0345/Metasploit-windows-GUI/raw/master/Extensions/Python-Enwrapper/Enwrapper.exe";
+            var url2 = "https://raw.githubusercontent.com/kres0345/Metasploit-windows-GUI/master/Extensions/Python-Enwrapper/version";
+            WebClient client = new WebClient();
+            client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+            client.DownloadFileAsync(new Uri(url), systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe");
+            WebClient client2 = new WebClient();
+            client2.DownloadFile(url2, systemroot + @"metagui\Extensions\Python-Enwrapper\version");
         }
 
         private void button4_Click(object sender, EventArgs e)
