@@ -99,13 +99,17 @@ namespace Metasploit_GUI
             }
             //strCmdText = "/C msfvenom -p "+comboBox1.SelectedItem;
             Console.WriteLine(strCmdText);
-            System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+            //System.Diagnostics.Process.Start("CMD.exe", strCmdText);
             if (checkBox1.Checked)
             {
+                strCmdText = strCmdText + " " + systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe" + '"' + saveLocation.Text + '"';
+                /*
                 string strCmdText1;
                 strCmdText1 = '"' + saveLocation.Text + '"';
                 System.Diagnostics.Process.Start(systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe", strCmdText1);
+                */
             }
+            System.Diagnostics.Process.Start("CMD.exe", strCmdText);
         }
 
         private void button3_Click(object sender, EventArgs e)

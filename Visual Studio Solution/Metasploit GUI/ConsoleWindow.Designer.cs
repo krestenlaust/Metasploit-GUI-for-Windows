@@ -43,6 +43,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(781, 332);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Loading...\nIf nothing happens within 1 - 2 minutes then something went wrong\n";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // textBox1
             // 

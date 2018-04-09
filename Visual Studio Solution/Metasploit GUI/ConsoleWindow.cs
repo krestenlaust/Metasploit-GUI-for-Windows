@@ -29,17 +29,17 @@ namespace Metasploit_GUI
 
         private void ConsoleWindow_Load(object sender, EventArgs e)
         {
-            string strCmdText;
-            strCmdText = "/C msfconsole";
-
+            //string strCmdText;
+            //strCmdText = "/C msfconsole";
             if (Options.WriteableConsole)
             {
                 richTextBox1.ReadOnly = false;
             }
+            /*
             if(handler)
             {
                 strCmdText = "/C msfconsole -x 'use multi/handler;set lhost " + Options.lhost + ";set lport " + Options.lport + ";set payload " + CreatePayload.Payload + ";exploit'";
-            }
+            }*/
             //var p = System.Diagnostics.Process.Start("CMD.exe", strCmdText);
             //processid = p.Id;
             ///
@@ -51,7 +51,10 @@ namespace Metasploit_GUI
             pr.StartInfo.CreateNoWindow = false;
             pr.StartInfo.FileName = @"C:\Windows\system32\cmd.exe";
             pr.StartInfo.Arguments = "/C msfconsole || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
-
+            if (handler)
+            {
+                pr.StartInfo.Arguments = "/C msfconsole -x 'use multi/handler;set lhost " + Options.lhost + ";set lport " + Options.lport + ";set payload " + CreatePayload.Payload + ";exploit' || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
+            }
             pr.OutputDataReceived += new DataReceivedEventHandler(
                 (s, u) =>
                 {
@@ -98,6 +101,7 @@ namespace Metasploit_GUI
                 //WindowState = FormWindowState.Minimized;
                 Show();
                 //WindowState = FormWindowState.Normal;
+                textBox1.Focus();
             }
         }
         public void Consolelog(string data)
@@ -106,6 +110,12 @@ namespace Metasploit_GUI
             {
                 richTextBox1.Text = richTextBox1.Text + "\n" + data;
             }));
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox1.Select(richTextBox1.Text.Length - 1, 0);
+            richTextBox1.ScrollToCaret();
         }
     }
 }

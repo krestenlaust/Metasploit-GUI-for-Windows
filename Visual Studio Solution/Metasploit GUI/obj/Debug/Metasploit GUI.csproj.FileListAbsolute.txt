@@ -29,3 +29,4 @@ C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Me
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit GUI.exe
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit GUI.pdb
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.ScriptEditor.resources
+C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.Profiles.resources

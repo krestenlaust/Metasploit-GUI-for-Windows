@@ -20,16 +20,14 @@ namespace Metasploit_GUI
         private void Main_Load(object sender, EventArgs e)
         {
             DebugWindow.logwrite("Loaded Main");
+            Profiles.LoadProfile(0);
         }
 
         private void button2_Click(object sender, EventArgs e) => new CreatePayload().Show();
-
         private void button1_Click(object sender, EventArgs e) => new RemoteAttack().Show();
-
         private void button3_Click(object sender, EventArgs e) => new Installer().Show();
-
         private void button4_Click(object sender, EventArgs e) => new ScriptEditor().Show();
-
         private void button5_Click(object sender, EventArgs e) => new ConsoleWindow("").Show();
+        private void button6_Click(object sender, EventArgs e) => new Profiles().Show();
     }
 }
