@@ -110,7 +110,33 @@ namespace Metasploit_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //execute
+            Random rnd = new Random(); //Let's just hope for it not to collide.
+            string filepath = Path.GetTempFileName();
+            //Path.Combine(Path.GetTempPath(), "temp" + rnd.Next(0, 65559).ToString() + ".rs")
+            try
+            {
+                File.WriteAllText(filepath, richTextBox1.Text);
+                ConsoleWindow.RunResourceScript(filepath);
+            }
+            catch
+            {
+                
+            }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //save
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Resource Script|*.rs|Text file|*.txt";
+            saveFileDialog1.Title = "Save your resource script";
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName != "")
+            {
+                File.WriteAllText(Path.GetFullPath(saveFileDialog1.FileName), richTextBox1.Text);
+            }
         }
     }
 }

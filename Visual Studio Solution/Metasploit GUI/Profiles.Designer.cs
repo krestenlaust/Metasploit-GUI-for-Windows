@@ -30,14 +30,14 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lhost = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lport = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rhost = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.rport = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rhost = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lport = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lhost = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,53 +75,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Config";
             // 
-            // lhost
+            // rport
             // 
-            this.lhost.Location = new System.Drawing.Point(6, 50);
-            this.lhost.Name = "lhost";
-            this.lhost.Size = new System.Drawing.Size(179, 22);
-            this.lhost.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "LHOST:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "LPORT:";
-            // 
-            // lport
-            // 
-            this.lport.Location = new System.Drawing.Point(6, 96);
-            this.lport.Name = "lport";
-            this.lport.Size = new System.Drawing.Size(179, 22);
-            this.lport.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "RHOST:";
-            // 
-            // rhost
-            // 
-            this.rhost.Location = new System.Drawing.Point(6, 141);
-            this.rhost.Name = "rhost";
-            this.rhost.Size = new System.Drawing.Size(179, 22);
-            this.rhost.TabIndex = 5;
+            this.rport.Location = new System.Drawing.Point(6, 186);
+            this.rport.Name = "rport";
+            this.rport.Size = new System.Drawing.Size(179, 22);
+            this.rport.TabIndex = 7;
             // 
             // label4
             // 
@@ -132,12 +91,53 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "RPORT:";
             // 
-            // rport
+            // rhost
             // 
-            this.rport.Location = new System.Drawing.Point(6, 186);
-            this.rport.Name = "rport";
-            this.rport.Size = new System.Drawing.Size(179, 22);
-            this.rport.TabIndex = 7;
+            this.rhost.Location = new System.Drawing.Point(6, 141);
+            this.rhost.Name = "rhost";
+            this.rhost.Size = new System.Drawing.Size(179, 22);
+            this.rhost.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "RHOST:";
+            // 
+            // lport
+            // 
+            this.lport.Location = new System.Drawing.Point(6, 96);
+            this.lport.Name = "lport";
+            this.lport.Size = new System.Drawing.Size(179, 22);
+            this.lport.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "LPORT:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "LHOST:";
+            // 
+            // lhost
+            // 
+            this.lhost.Location = new System.Drawing.Point(6, 50);
+            this.lhost.Name = "lhost";
+            this.lhost.Size = new System.Drawing.Size(179, 22);
+            this.lhost.TabIndex = 0;
             // 
             // button1
             // 
@@ -164,9 +164,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 237);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(20, 17);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "...";
             // 
             // Profiles
             // 

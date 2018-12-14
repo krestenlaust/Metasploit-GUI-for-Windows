@@ -16,7 +16,6 @@ C:\Users\kress\source\repos\Metasploit GUI\Metasploit GUI\obj\Debug\Metasploit_G
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\bin\Debug\Metasploit GUI.exe.config
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\bin\Debug\Metasploit GUI.exe
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\bin\Debug\Metasploit GUI.pdb
-C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit GUI.csprojResolveAssemblyReference.cache
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.ConsoleWindow.resources
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.CreatePayload.resources
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.DebugWindow.resources
@@ -30,3 +29,4 @@ C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Me
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit GUI.pdb
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.ScriptEditor.resources
 C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit_GUI.Profiles.resources
+C:\Users\kress\Documents\GitHub\Metasploit-windows-GUI\Visual Studio Solution\Metasploit GUI\obj\Debug\Metasploit GUI.csprojAssemblyReference.cache

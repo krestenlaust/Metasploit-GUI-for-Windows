@@ -21,6 +21,7 @@ namespace Metasploit_GUI
 
         public int processid;
         public bool handler = false;
+
         public ConsoleWindow(string Param1)
         {
             InitializeComponent();
@@ -79,6 +80,32 @@ namespace Metasploit_GUI
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public static void RunResourceScript(string filepath)
+        {
+            Process pr = new Process();
+            //pr.StartInfo.RedirectStandardError = true;
+            //pr.StartInfo.RedirectStandardOutput = true;
+            //pr.StartInfo.UseShellExecute = false;
+            //pr.StartInfo.CreateNoWindow = false;
+            pr.StartInfo.FileName = @"C:\Windows\system32\cmd.exe";
+            //pr.StartInfo.Arguments = "/C msfconsole || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
+            pr.StartInfo.Arguments = String.Format("/C msfconsole -r '{0}' || echo 'msfconsole' command is not a command, is Metasploit Framework installed. & pause", filepath);
+            /*
+            pr.OutputDataReceived += new DataReceivedEventHandler(
+                (s, u) =>
+                {
+                    Console.WriteLine(u.Data);
+                    Consolelog(u.Data);
+                    //richTextBox1.Text += u.Data;
+                }
+            );*/
+            //pr.ErrorDataReceived += new DataReceivedEventHandler((s, u) => { Console.WriteLine(u.Data); });
+            //pr.ErrorDataReceived += new DataReceivedEventHandler((s, u) => { richTextBox1.Text += u.Data; });
+            pr.Start();
+            //processid = pr.Id;
+            //pr.BeginOutputReadLine();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
