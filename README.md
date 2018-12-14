@@ -1,2 +1,2 @@
 # Metasploit-windows-GUI
-A advanced gui for windows version of metasploit created using C# and Visual Studio.
+A GUI for windows version of metasploit created using C# and Visual Studio.
