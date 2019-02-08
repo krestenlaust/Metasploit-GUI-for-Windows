@@ -34,6 +34,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.buttonOptions = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -78,17 +79,17 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(569, 182);
+            this.button5.Location = new System.Drawing.Point(661, 190);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(127, 51);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Console";
+            this.button5.Text = "Open Console";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(599, 13);
+            this.button6.Location = new System.Drawing.Point(599, 62);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(189, 49);
             this.button6.TabIndex = 5;
@@ -96,11 +97,22 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // buttonOptions
+            // 
+            this.buttonOptions.Location = new System.Drawing.Point(661, 5);
+            this.buttonOptions.Name = "buttonOptions";
+            this.buttonOptions.Size = new System.Drawing.Size(127, 51);
+            this.buttonOptions.TabIndex = 6;
+            this.buttonOptions.Text = "Options";
+            this.buttonOptions.UseVisualStyleBackColor = true;
+            this.buttonOptions.Click += new System.EventHandler(this.buttonOptions_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOptions);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonOptions;
     }
 }

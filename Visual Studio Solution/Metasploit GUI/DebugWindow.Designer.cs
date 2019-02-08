@@ -28,26 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // richTextBoxLog
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 125);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(506, 215);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.ReadOnly = true;
+            this.richTextBoxLog.Size = new System.Drawing.Size(519, 179);
+            this.richTextBoxLog.TabIndex = 0;
+            this.richTextBoxLog.Text = "";
             // 
             // DebugWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 352);
-            this.Controls.Add(this.richTextBox1);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(519, 179);
+            this.Controls.Add(this.richTextBoxLog);
+            this.MaximizeBox = false;
             this.Name = "DebugWindow";
-            this.Text = "DebugWindow";
+            this.ShowIcon = false;
+            this.Text = "Debug logs";
             this.Load += new System.EventHandler(this.DebugWindow_Load);
             this.ResumeLayout(false);
 
@@ -55,6 +59,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBoxLog;
     }
 }

@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,15 +40,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDisableDebug = new System.Windows.Forms.RadioButton();
+            this.radioButtonEnableDebug = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxEditableConsole = new System.Windows.Forms.CheckBox();
+            this.checkBoxAutocomplete = new System.Windows.Forms.CheckBox();
+            this.groupBoxAutoCompletePrefs = new System.Windows.Forms.GroupBox();
+            this.labelValue = new System.Windows.Forms.Label();
+            this.buttonDictionary = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.trackBarMaxSuggestions = new System.Windows.Forms.TrackBar();
+            this.toolTipOptions = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonRefreshDict = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBoxAutoCompletePrefs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarMaxSuggestions)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -59,12 +75,42 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(209, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(228, 291);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payload settings";
+            this.groupBox1.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(213, 31);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Apply";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 123);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(213, 31);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Apply";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 222);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 7;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
             // 
@@ -130,86 +176,167 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "LHOST:";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 222);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 250);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 31);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Apply";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 309);
+            this.groupBox2.Controls.Add(this.radioButtonDisableDebug);
+            this.groupBox2.Controls.Add(this.radioButtonEnableDebug);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 129);
+            this.groupBox2.Size = new System.Drawing.Size(200, 92);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Debug";
+            this.groupBox2.Text = "Debug/Console log";
             // 
-            // radioButton1
+            // radioButtonDisableDebug
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 57);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(81, 21);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Enabled";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButtonDisableDebug.AutoSize = true;
+            this.radioButtonDisableDebug.Location = new System.Drawing.Point(6, 57);
+            this.radioButtonDisableDebug.Name = "radioButtonDisableDebug";
+            this.radioButtonDisableDebug.Size = new System.Drawing.Size(127, 21);
+            this.radioButtonDisableDebug.TabIndex = 1;
+            this.radioButtonDisableDebug.TabStop = true;
+            this.radioButtonDisableDebug.Text = "Hide Debug log";
+            this.radioButtonDisableDebug.UseVisualStyleBackColor = true;
+            this.radioButtonDisableDebug.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton2
+            // radioButtonEnableDebug
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 84);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(84, 21);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Disabled";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonEnableDebug.AutoSize = true;
+            this.radioButtonEnableDebug.Location = new System.Drawing.Point(6, 30);
+            this.radioButtonEnableDebug.Name = "radioButtonEnableDebug";
+            this.radioButtonEnableDebug.Size = new System.Drawing.Size(132, 21);
+            this.radioButtonEnableDebug.TabIndex = 0;
+            this.radioButtonEnableDebug.TabStop = true;
+            this.radioButtonEnableDebug.Text = "Show Debug log";
+            this.radioButtonEnableDebug.UseVisualStyleBackColor = true;
+            this.radioButtonEnableDebug.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox3);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.checkBoxEditableConsole);
+            this.groupBox3.Controls.Add(this.checkBoxAutocomplete);
+            this.groupBox3.Controls.Add(this.groupBoxAutoCompletePrefs);
+            this.groupBox3.Location = new System.Drawing.Point(443, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(219, 302);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Console Window Preferences";
+            // 
+            // checkBoxEditableConsole
+            // 
+            this.checkBoxEditableConsole.AutoSize = true;
+            this.checkBoxEditableConsole.Location = new System.Drawing.Point(6, 273);
+            this.checkBoxEditableConsole.Name = "checkBoxEditableConsole";
+            this.checkBoxEditableConsole.Size = new System.Drawing.Size(183, 21);
+            this.checkBoxEditableConsole.TabIndex = 2;
+            this.checkBoxEditableConsole.Text = "Editable Console Output";
+            this.checkBoxEditableConsole.UseVisualStyleBackColor = true;
+            this.checkBoxEditableConsole.CheckedChanged += new System.EventHandler(this.checkBoxEditableConsole_CheckedChanged);
+            this.checkBoxEditableConsole.MouseHover += new System.EventHandler(this.checkBoxEditableConsole_MouseHover);
+            // 
+            // checkBoxAutocomplete
+            // 
+            this.checkBoxAutocomplete.AutoSize = true;
+            this.checkBoxAutocomplete.Checked = true;
+            this.checkBoxAutocomplete.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutocomplete.Location = new System.Drawing.Point(6, 59);
+            this.checkBoxAutocomplete.Name = "checkBoxAutocomplete";
+            this.checkBoxAutocomplete.Size = new System.Drawing.Size(171, 21);
+            this.checkBoxAutocomplete.TabIndex = 1;
+            this.checkBoxAutocomplete.Text = "Enable Auto-Complete";
+            this.checkBoxAutocomplete.UseVisualStyleBackColor = true;
+            this.checkBoxAutocomplete.CheckedChanged += new System.EventHandler(this.checkBoxAutocomplete_CheckedChanged);
+            // 
+            // groupBoxAutoCompletePrefs
+            // 
+            this.groupBoxAutoCompletePrefs.Controls.Add(this.buttonRefreshDict);
+            this.groupBoxAutoCompletePrefs.Controls.Add(this.labelValue);
+            this.groupBoxAutoCompletePrefs.Controls.Add(this.buttonDictionary);
+            this.groupBoxAutoCompletePrefs.Controls.Add(this.label5);
+            this.groupBoxAutoCompletePrefs.Controls.Add(this.trackBarMaxSuggestions);
+            this.groupBoxAutoCompletePrefs.Location = new System.Drawing.Point(6, 86);
+            this.groupBoxAutoCompletePrefs.Name = "groupBoxAutoCompletePrefs";
+            this.groupBoxAutoCompletePrefs.Size = new System.Drawing.Size(200, 179);
+            this.groupBoxAutoCompletePrefs.TabIndex = 0;
+            this.groupBoxAutoCompletePrefs.TabStop = false;
+            this.groupBoxAutoCompletePrefs.Text = "Auto-Complete Preferences";
+            // 
+            // labelValue
+            // 
+            this.labelValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelValue.AutoSize = true;
+            this.labelValue.Location = new System.Drawing.Point(114, 124);
+            this.labelValue.Name = "labelValue";
+            this.labelValue.Size = new System.Drawing.Size(48, 17);
+            this.labelValue.TabIndex = 3;
+            this.labelValue.Text = "Value:";
+            // 
+            // buttonDictionary
+            // 
+            this.buttonDictionary.Location = new System.Drawing.Point(6, 26);
+            this.buttonDictionary.Name = "buttonDictionary";
+            this.buttonDictionary.Size = new System.Drawing.Size(188, 33);
+            this.buttonDictionary.TabIndex = 2;
+            this.buttonDictionary.Text = "Change dictionary location";
+            this.buttonDictionary.UseVisualStyleBackColor = true;
+            this.buttonDictionary.Click += new System.EventHandler(this.buttonDictionary_Click);
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Location = new System.Drawing.Point(6, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Log to window";
+            this.label5.Size = new System.Drawing.Size(166, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Max Suggestions at once";
+            // 
+            // trackBarMaxSuggestions
+            // 
+            this.trackBarMaxSuggestions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarMaxSuggestions.LargeChange = 2;
+            this.trackBarMaxSuggestions.Location = new System.Drawing.Point(6, 118);
+            this.trackBarMaxSuggestions.Minimum = 1;
+            this.trackBarMaxSuggestions.Name = "trackBarMaxSuggestions";
+            this.trackBarMaxSuggestions.Size = new System.Drawing.Size(104, 56);
+            this.trackBarMaxSuggestions.TabIndex = 0;
+            this.trackBarMaxSuggestions.Value = 5;
+            this.trackBarMaxSuggestions.Scroll += new System.EventHandler(this.trackBarMaxSuggestions_Scroll);
+            // 
+            // buttonRefreshDict
+            // 
+            this.buttonRefreshDict.Location = new System.Drawing.Point(6, 59);
+            this.buttonRefreshDict.Name = "buttonRefreshDict";
+            this.buttonRefreshDict.Size = new System.Drawing.Size(188, 33);
+            this.buttonRefreshDict.TabIndex = 4;
+            this.buttonRefreshDict.Text = "Refresh Dictionary";
+            this.buttonRefreshDict.UseVisualStyleBackColor = true;
+            this.buttonRefreshDict.Click += new System.EventHandler(this.buttonRefreshDict_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Text file(*.txt)|*txt|All files (*.*)|*.*";
+            this.openFileDialog1.Title = "Select Auto-Complete Dictionary";
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Options";
@@ -219,6 +346,12 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBoxAutoCompletePrefs.ResumeLayout(false);
+            this.groupBoxAutoCompletePrefs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarMaxSuggestions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,8 +370,19 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioButtonDisableDebug;
+        private System.Windows.Forms.RadioButton radioButtonEnableDebug;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkBoxAutocomplete;
+        private System.Windows.Forms.GroupBox groupBoxAutoCompletePrefs;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TrackBar trackBarMaxSuggestions;
+        private System.Windows.Forms.ToolTip toolTipOptions;
+        private System.Windows.Forms.CheckBox checkBoxEditableConsole;
+        private System.Windows.Forms.Button buttonDictionary;
+        private System.Windows.Forms.Label labelValue;
+        private System.Windows.Forms.Button buttonRefreshDict;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

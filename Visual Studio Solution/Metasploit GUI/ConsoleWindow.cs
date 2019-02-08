@@ -13,6 +13,12 @@ using System.Windows.Forms;
 
 namespace Metasploit_GUI
 {
+
+    public enum ConsoleStartOptions{
+        handler,
+        interactive,
+    }
+
     public partial class ConsoleWindow : Form
     {
         [DllImport("user32.dll")]
@@ -20,21 +26,33 @@ namespace Metasploit_GUI
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
         public int processid;
-        public bool handler = false;
+        public bool handler;
 
-        public ConsoleWindow(string Param1)
+        public ConsoleWindow(ConsoleStartOptions Options = ConsoleStartOptions.interactive)
         {
             InitializeComponent();
-            if (Param1 == "handler") handler = true;
+            switch (Options)
+            {
+                case ConsoleStartOptions.handler:
+                    handler = true;
+                    break;
+                case ConsoleStartOptions.interactive:
+                    handler = false;
+                    break;
+                default:
+                    break;
+            }
+
+            Statics.Print($"Console Window mode: {Options.ToString()}");
         }
 
         private void ConsoleWindow_Load(object sender, EventArgs e)
         {
             //string strCmdText;
             //strCmdText = "/C msfconsole";
-            if (Options.WriteableConsole)
+            if (Statics.editableConsoleOutput)
             {
-                richTextBox1.ReadOnly = false;
+                richTextBoxOutput.ReadOnly = false;
             }
             /*
             if(handler)
@@ -51,10 +69,10 @@ namespace Metasploit_GUI
             //pr.StartInfo.CreateNoWindow = true;
             pr.StartInfo.CreateNoWindow = false;
             pr.StartInfo.FileName = @"C:\Windows\system32\cmd.exe";
-            pr.StartInfo.Arguments = "/C msfconsole || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
+            pr.StartInfo.Arguments = "/C msfconsole -a || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
             if (handler)
             {
-                pr.StartInfo.Arguments = "/C msfconsole -x 'use multi/handler;set lhost " + Options.lhost + ";set lport " + Options.lport + ";set payload " + CreatePayload.Payload + ";exploit' || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
+                pr.StartInfo.Arguments = "/C msfconsole -a -x 'use multi/handler;setg lhost " + Statics.lhost + ";setg lport " + Statics.lport + ";set payload " + CreatePayload.Payload + ";exploit' || echo 'msfconsole' is not a command, is Metasploit Framework installed?";
             }
             pr.OutputDataReceived += new DataReceivedEventHandler(
                 (s, u) =>
@@ -75,6 +93,9 @@ namespace Metasploit_GUI
             processid = pr.Id;
             pr.BeginOutputReadLine();
             ///
+
+            //Autocomplete menu control https://www.codeproject.com/Articles/365974/Autocomplete-Menu
+            autocompleteMenu1.Items = Statics.DictionaryItems;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -115,34 +136,67 @@ namespace Metasploit_GUI
                 //Send command
                 //SendKeys.Send();
                 //Process[] processes = Process.GetProcessesByName("notepad");
-                Process processes = Process.GetProcessById(processid);
+                Process processes;
+                try
+                {
+                    processes = Process.GetProcessById(processid);
+                }
+                catch
+                {
+                    Statics.Print("Process not found, Metasploit Framework not found");
+                    return;
+                }
                 //Process game1 = processes[0];
                 Process game1 = processes;
 
                 IntPtr p = game1.MainWindowHandle;
                 SetForegroundWindow(p);
                 //SendKeys.SendWait(textBox1.Text);
-                SendKeys.Send(textBox1.Text);
+                SendKeys.Send(textBoxInput.Text);
                 SendKeys.Send("{ENTER}");
-                textBox1.Text = "";
+                textBoxInput.Text = "";
                 //WindowState = FormWindowState.Minimized;
                 Show();
                 //WindowState = FormWindowState.Normal;
-                textBox1.Focus();
+                textBoxInput.Focus();
             }
         }
         public void Consolelog(string data)
         {
             BeginInvoke(new Action(() =>
             {
-                richTextBox1.Text = richTextBox1.Text + "\n" + data;
+                richTextBoxOutput.Text = richTextBoxOutput.Text + "\n" + data;
             }));
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.Select(richTextBox1.Text.Length - 1, 0);
-            richTextBox1.ScrollToCaret();
+            richTextBoxOutput.Select(richTextBoxOutput.Text.Length - 1, 0);
+            richTextBoxOutput.ScrollToCaret();
+        }
+
+        public List<string> GetSuggestions(string keyword)
+        {
+            List<string> list = new List<string>();
+
+            list.Add("Hello");
+
+            return list;
+        }
+
+        private void textBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            Statics.Print($"Getting suggestions for {textBoxInput.Text}");
+
+            /*
+            menuStripAutoComplete.Items.Clear();
+
+            foreach (string item in GetSuggestions(textBoxInput.Text))
+            {
+                menuStripAutoComplete.Items.Add(item);
+            }
+
+            menuStripAutoComplete.Show();*/
         }
     }
 }

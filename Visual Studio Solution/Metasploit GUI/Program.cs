@@ -16,7 +16,8 @@ namespace Metasploit_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Installer());
+            //Application.Run(new Installer());
+            Application.Run(new Main());
         }
     }
 }

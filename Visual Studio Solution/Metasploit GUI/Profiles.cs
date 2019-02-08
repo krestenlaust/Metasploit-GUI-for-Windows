@@ -20,68 +20,69 @@ namespace Metasploit_GUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex == 0)
-            {
-                Loadprofile(0);
-                /*
-                String[] config = File.ReadAllLines(@"Profiles\Profile1.txt");
-                lhost.Text = config[0];
-                lport.Text = config[1];
-                rhost.Text = config[2];
-                rport.Text = config[3];*/
-            }
-            if(comboBox1.SelectedIndex == 1)
-            {
-                Loadprofile(1);
-                /*
-                String[] config = File.ReadAllLines(@"Profiles\Profile2.txt");
-                lhost.Text = config[0];
-                lport.Text = config[1];
-                rhost.Text = config[2];
-                rport.Text = config[3];*/
-            }
-            if(comboBox1.SelectedIndex == 2)
-            {
-                Loadprofile(2);
-                /*
-                String[] config = File.ReadAllLines(@"Profiles\Profile3.txt");
-                lhost.Text = config[0];
-                lport.Text = config[1];
-                rhost.Text = config[2];
-                rport.Text = config[3];*/
-            }
-            label5.Text = "Showing profile: " + comboBox1.SelectedItem;
+            Loadprofile(comboBoxProfiles.SelectedItem.ToString());
+            label5.Text = "Showing profile: " + comboBoxProfiles.SelectedItem;
         }
 
-        public void Loadprofile(int profile)
+        public void Loadprofile(string profile)
         {
+            lhost.Text = Statics.Profiles[profile]["lhost"];
+            lport.Text = Statics.Profiles[profile]["lport"];
+            rhost.Text = Statics.Profiles[profile]["rhost"];
+            rport.Text = Statics.Profiles[profile]["rport"];
+
+            /*
             profile += 1;
             String[] config = File.ReadAllLines(@"Profiles\Profile"+profile+".txt");
             lhost.Text = config[0];
             lport.Text = config[1];
             rhost.Text = config[2];
-            rport.Text = config[3];
+            rport.Text = config[3];*/
         }
 
+        public void ApplyProfile(int profile)
+        {
+            Statics.lhost = lhost.Text;
+            Statics.lport = lport.Text;
+            Statics.rhost = rhost.Text;
+            Statics.rport = rport.Text;
+
+            label5.Text = "Applied the options specified";
+        }
+
+        /*
         public static void LoadProfile(int profile)
         {
             new Profiles().Loadprofile(profile);
-        }
+        }*/
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Save profile
         {
-            //Save changes
-            label5.Text = "!Not implemented yet! Saved profile config to: " + comboBox1.SelectedItem;
+            Statics.Profiles[textBoxName.Text]["lhost"] = lhost.Text;
+            Statics.Profiles[textBoxName.Text]["lport"] = lport.Text;
+            Statics.Profiles[textBoxName.Text]["rhost"] = rhost.Text;
+            Statics.Profiles[textBoxName.Text]["rport"] = rport.Text;
+            label5.Text = $"Saved the config to profile {textBoxName.Text}";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //Apply profile
-            Options.lhost = lhost.Text;
-            Options.lport = int.Parse(lport.Text);
-            Options.rhost = rhost.Text;
-            Options.rport = int.Parse(rport.Text);
+            Statics.lhost = lhost.Text;
+            Statics.lport = lport.Text;
+            Statics.rhost = rhost.Text;
+            Statics.rport = rport.Text;
             label5.Text = "Applied changes";
+        }
+
+        private void Profiles_Load(object sender, EventArgs e)
+        {
+
+            comboBoxProfiles.Items.Clear();
+            foreach(KeyValuePair<string, Dictionary<string, string>> profile_dict in Statics.Profiles)
+            {
+                comboBoxProfiles.Items.Add(profile_dict.Key);
+            }
         }
     }
 }

@@ -12,23 +12,39 @@ namespace Metasploit_GUI
 {
     public partial class DebugWindow : Form
     {
+
+        private static DebugWindow form = null;
+
         public DebugWindow()
         {
             InitializeComponent();
+            form = this;
         }
-        public void LogWriteFunc(string log)
-        {
-            richTextBox1.Text = richTextBox1.Text + "\n" + log;
-        }
-        static public void logwrite(string log)
-        {
-            DebugWindow rtb = new DebugWindow();
-            rtb.LogWriteFunc(log);
-            //LogWriteFunc(log);
-        }
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
 
+        public static void AppendLog(string log)
+        {
+            if (form != null)
+            {
+                form.richTextBoxLog.Text += log;
+                int textLength = form.richTextBoxLog.TextLength;
+                int logLength = log.Length;
+                form.richTextBoxLog.Select(Math.Max(0, textLength - logLength), textLength);
+
+                Color targetColor = form.richTextBoxLog.ForeColor;
+
+                switch (log.Substring(log.IndexOf('[') + 1, log.IndexOf(']')))
+                {
+                    case "WARNING":
+                        targetColor = Statics.Warning_Color;
+                        break;
+                    case "ERROR":
+                        targetColor = Statics.Error_Color;
+                        break;
+                }
+
+                form.richTextBoxLog.SelectionColor = targetColor;
+                form.richTextBoxLog.DeselectAll();
+            }
         }
 
         private void DebugWindow_Load(object sender, EventArgs e)

