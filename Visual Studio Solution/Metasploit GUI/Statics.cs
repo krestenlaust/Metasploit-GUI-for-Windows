@@ -23,12 +23,15 @@ namespace Metasploit_GUI
         public static int HistoryLength = 10;
 
         /* Installed booleans */
-        public static bool pythonwrapper_installed, metasploit_installed, nmap_installed;
+        public static bool pythonwrapper_installed, metasploit_installed;//, nmap_installed;
 
         /* Paths */
-        public static string pythonwrapper_path, metasploit_path, nmap_path;
+        //public static string pythonwrapper_path, metasploit_path, nmap_path;
+#if DEBUG
         public static string dictionary_path = "..\\..\\Dictionary.txt";
-
+#else
+        public static string dictionary_path = "Dictionary.txt";
+#endif
         /* Constants */
         public const string ProfileFile = "Profiles.ini";
         public static readonly bool DebugWindowEnabled = true;
