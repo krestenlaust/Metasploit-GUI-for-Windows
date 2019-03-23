@@ -228,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dictionary.txt" />
+    <Content Include="Properties\Dictionary.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
