@@ -47,9 +47,25 @@ namespace Metasploit_GUI
             }
         }
 
+        private void SaveLogsToFile()
+        {
+
+        }
+
         private void DebugWindow_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void richTextBoxLog_KeyDown(object sender, KeyEventArgs e)
+        {
+            if((Control.ModifierKeys & Keys.Control) == Keys.Control)
+            {
+                if(e.KeyCode == Keys.S) // Save logs to file
+                {
+                    SaveLogsToFile();
+                }
+            }
         }
     }
 }

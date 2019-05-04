@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="CreatePayload" xml:space="preserve">
+    <value>Create Payload</value>
+  </data>
+  <data name="OpenConsole" xml:space="preserve">
+    <value>Open Console</value>
+  </data>
+  <data name="tooltipOpenConsole" xml:space="preserve">
+    <value>Opens a new console window | Shortcut: ALT + C</value>
+  </data>
+  <data name="tooltipOpenInstaller" xml:space="preserve">
+    <value>Opens the installer window | Shortcut: CTRL + I or ALT + I</value>
+  </data>
 </root>

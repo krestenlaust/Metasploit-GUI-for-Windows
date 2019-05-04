@@ -114,7 +114,7 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+N";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -122,7 +122,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+O";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -130,7 +130,7 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+S";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -138,19 +138,19 @@
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.saveAsToolStripMenuItem.Text = "Save as...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -170,7 +170,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Z";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -178,7 +178,7 @@
             // 
             this.redoToolStripMenuItem1.Name = "redoToolStripMenuItem1";
             this.redoToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+Y";
-            this.redoToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.redoToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
             this.redoToolStripMenuItem1.Text = "Redo";
             this.redoToolStripMenuItem1.Click += new System.EventHandler(this.redoToolStripMenuItem1_Click);
             // 
@@ -220,7 +220,7 @@
             this.infobarToolStripMenuItem.Checked = true;
             this.infobarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.infobarToolStripMenuItem.Name = "infobarToolStripMenuItem";
-            this.infobarToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.infobarToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.infobarToolStripMenuItem.Text = "Infobar";
             this.infobarToolStripMenuItem.Click += new System.EventHandler(this.infobarToolStripMenuItem_Click);
             // 
@@ -229,7 +229,7 @@
             this.infobarOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showHistoryIndexToolStripMenuItem});
             this.infobarOptionsToolStripMenuItem.Name = "infobarOptionsToolStripMenuItem";
-            this.infobarOptionsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.infobarOptionsToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.infobarOptionsToolStripMenuItem.Text = "Infobar Options";
             // 
             // showHistoryIndexToolStripMenuItem
@@ -244,14 +244,14 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
             // 
             // lineNumbersToolStripMenuItem
             // 
             this.lineNumbersToolStripMenuItem.Checked = true;
             this.lineNumbersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.lineNumbersToolStripMenuItem.Name = "lineNumbersToolStripMenuItem";
-            this.lineNumbersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.lineNumbersToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.lineNumbersToolStripMenuItem.Text = "Line numbers";
             this.lineNumbersToolStripMenuItem.Click += new System.EventHandler(this.lineNumbersToolStripMenuItem_Click);
             // 
@@ -319,7 +319,7 @@
             this.Controls.Add(this.statusStripInfobar);
             this.Controls.Add(this.toolStripWindow);
             this.Name = "ScriptEditor";
-            this.Text = "Script Editor";
+            this.Text = "Resource Script Editor (RSE) - Metasploit GUI";
             this.Load += new System.EventHandler(this.ScriptEditor_Load);
             this.ResizeEnd += new System.EventHandler(this.ScriptEditor_ResizeEnd);
             this.toolStripWindow.ResumeLayout(false);

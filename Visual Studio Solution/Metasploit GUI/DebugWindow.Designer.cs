@@ -40,6 +40,7 @@
             this.richTextBoxLog.Size = new System.Drawing.Size(519, 179);
             this.richTextBoxLog.TabIndex = 0;
             this.richTextBoxLog.Text = "";
+            this.richTextBoxLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxLog_KeyDown);
             // 
             // DebugWindow
             // 
