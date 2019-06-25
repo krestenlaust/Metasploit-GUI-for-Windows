@@ -120,6 +120,12 @@
   <data name="CreatePayload" xml:space="preserve">
     <value>Create Payload</value>
   </data>
+  <data name="errorMetasploitNotInstalled" xml:space="preserve">
+    <value />
+  </data>
+  <data name="errorMetasploitProcessNotFound" xml:space="preserve">
+    <value>Process not found, Metasploit Framework not found</value>
+  </data>
   <data name="OpenConsole" xml:space="preserve">
     <value>Open Console</value>
   </data>

@@ -19,14 +19,17 @@ namespace Metasploit_GUI
         interactive,
     }
 
+
     public partial class ConsoleWindow : Form
     {
+
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
         public int processid;
         public bool handler;
+
 
         public ConsoleWindow(ConsoleStartOptions Options = ConsoleStartOptions.interactive)
         {
@@ -46,34 +49,40 @@ namespace Metasploit_GUI
             Statics.Print($"Console Window mode: {Options.ToString()}");
         }
 
+        private string LaunchParameterString()
+        {
+            if (!handler)
+                return "/C msfconsole -a || echo 'msfconsole' command is not a command, is Metasploit Framework installed?";
+
+            StringBuilder sb = new StringBuilder("/C msfconsole -a -x 'use multi/handler;setg lhost ");
+            sb.Append(Statics.lhost);
+            sb.Append(";setg lport ");
+            sb.Append(Statics.lport);
+            sb.Append(";set payload ");
+            sb.Append(CreatePayload.Payload);
+            sb.Append(";exploit' || echo 'msfconsole' is not a command, is Metasploit Framework installed?");
+            return sb.ToString();
+            //return "/C msfconsole -a -x 'use multi/handler;setg lhost " + Statics.lhost + ";setg lport " + Statics.lport + ";set payload " + CreatePayload.Payload + ";exploit' || echo 'msfconsole' is not a command, is Metasploit Framework installed?"
+        }
+
         private void ConsoleWindow_Load(object sender, EventArgs e)
         {
-            //string strCmdText;
-            //strCmdText = "/C msfconsole";
             if (Statics.editableConsoleOutput)
             {
                 richTextBoxOutput.ReadOnly = false;
             }
-            /*
-            if(handler)
-            {
-                strCmdText = "/C msfconsole -x 'use multi/handler;set lhost " + Options.lhost + ";set lport " + Options.lport + ";set payload " + CreatePayload.Payload + ";exploit'";
-            }*/
-            //var p = System.Diagnostics.Process.Start("CMD.exe", strCmdText);
-            //processid = p.Id;
-            ///
+
             Process pr = new Process();
             pr.StartInfo.RedirectStandardError = true;
             pr.StartInfo.RedirectStandardOutput = true;
             pr.StartInfo.UseShellExecute = false;
-            //pr.StartInfo.CreateNoWindow = true;
             pr.StartInfo.CreateNoWindow = false;
             pr.StartInfo.FileName = @"C:\Windows\system32\cmd.exe";
-            pr.StartInfo.Arguments = "/C msfconsole -a || echo 'msfconsole' command is not a command, is Metasploit Framework installed.";
-            if (handler)
+            pr.StartInfo.Arguments = LaunchParameterString();
+            /*if (handler)
             {
                 pr.StartInfo.Arguments = "/C msfconsole -a -x 'use multi/handler;setg lhost " + Statics.lhost + ";setg lport " + Statics.lport + ";set payload " + CreatePayload.Payload + ";exploit' || echo 'msfconsole' is not a command, is Metasploit Framework installed?";
-            }
+            }*/
             pr.OutputDataReceived += new DataReceivedEventHandler(
                 (s, u) =>
                 {
@@ -88,11 +97,9 @@ namespace Metasploit_GUI
                 }
             );
             pr.ErrorDataReceived += new DataReceivedEventHandler((s, u) => { Console.WriteLine(u.Data); });
-            //pr.ErrorDataReceived += new DataReceivedEventHandler((s, u) => { richTextBox1.Text += u.Data; });
             pr.Start();
             processid = pr.Id;
             pr.BeginOutputReadLine();
-            ///
 
             //Autocomplete menu control https://www.codeproject.com/Articles/365974/Autocomplete-Menu
             autocompleteMenu1.Items = Statics.DictionaryItems;
@@ -137,13 +144,10 @@ namespace Metasploit_GUI
                 //SendKeys.Send();
                 //Process[] processes = Process.GetProcessesByName("notepad");
                 Process processes;
-                try
-                {
+                try{
                     processes = Process.GetProcessById(processid);
-                }
-                catch
-                {
-                    Statics.Print("Process not found, Metasploit Framework not found");
+                } catch {
+                    Statics.Print(strings.errorMetasploitProcessNotFound);
                     return;
                 }
                 //Process game1 = processes[0];
@@ -186,7 +190,6 @@ namespace Metasploit_GUI
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
         {
-            Statics.Print($"Getting suggestions for {textBoxInput.Text}");
 
             /*
             menuStripAutoComplete.Items.Clear();

@@ -70,6 +70,24 @@ namespace Metasploit_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string errorMetasploitNotInstalled {
+            get {
+                return ResourceManager.GetString("errorMetasploitNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process not found, Metasploit Framework not found.
+        /// </summary>
+        internal static string errorMetasploitProcessNotFound {
+            get {
+                return ResourceManager.GetString("errorMetasploitProcessNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Console.
         /// </summary>
         internal static string OpenConsole {

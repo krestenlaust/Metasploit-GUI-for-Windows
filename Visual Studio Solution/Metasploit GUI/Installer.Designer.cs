@@ -29,26 +29,27 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSelectMetasploit = new System.Windows.Forms.CheckBox();
             this.metasploitstatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSelectPythonWrapper = new System.Windows.Forms.CheckBox();
             this.pythonwrapperstatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSelectNmap = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nmapstatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBoxSelected = new System.Windows.Forms.CheckedListBox();
-            this.checkBoxSelectMetasploit = new System.Windows.Forms.CheckBox();
-            this.checkBoxSelectPythonWrapper = new System.Windows.Forms.CheckBox();
-            this.checkBoxSelectNmap = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanelSoftware = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.checkBoxSelectAll = new System.Windows.Forms.CheckBox();
             this.labelSelected = new System.Windows.Forms.Label();
+            this.buttonInstallSelected = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,6 +68,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Metasploit";
+            // 
+            // checkBoxSelectMetasploit
+            // 
+            this.checkBoxSelectMetasploit.AutoSize = true;
+            this.checkBoxSelectMetasploit.Location = new System.Drawing.Point(178, 10);
+            this.checkBoxSelectMetasploit.Name = "checkBoxSelectMetasploit";
+            this.checkBoxSelectMetasploit.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxSelectMetasploit.TabIndex = 3;
+            this.checkBoxSelectMetasploit.UseVisualStyleBackColor = true;
             // 
             // metasploitstatus
             // 
@@ -98,6 +108,15 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Python-Wrapper";
+            // 
+            // checkBoxSelectPythonWrapper
+            // 
+            this.checkBoxSelectPythonWrapper.AutoSize = true;
+            this.checkBoxSelectPythonWrapper.Location = new System.Drawing.Point(178, 10);
+            this.checkBoxSelectPythonWrapper.Name = "checkBoxSelectPythonWrapper";
+            this.checkBoxSelectPythonWrapper.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxSelectPythonWrapper.TabIndex = 4;
+            this.checkBoxSelectPythonWrapper.UseVisualStyleBackColor = true;
             // 
             // pythonwrapperstatus
             // 
@@ -140,6 +159,15 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "NMAP";
+            // 
+            // checkBoxSelectNmap
+            // 
+            this.checkBoxSelectNmap.AutoSize = true;
+            this.checkBoxSelectNmap.Location = new System.Drawing.Point(178, 10);
+            this.checkBoxSelectNmap.Name = "checkBoxSelectNmap";
+            this.checkBoxSelectNmap.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxSelectNmap.TabIndex = 5;
+            this.checkBoxSelectNmap.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -189,33 +217,6 @@
             this.checkedListBoxSelected.Size = new System.Drawing.Size(161, 157);
             this.checkedListBoxSelected.TabIndex = 6;
             // 
-            // checkBoxSelectMetasploit
-            // 
-            this.checkBoxSelectMetasploit.AutoSize = true;
-            this.checkBoxSelectMetasploit.Location = new System.Drawing.Point(178, 10);
-            this.checkBoxSelectMetasploit.Name = "checkBoxSelectMetasploit";
-            this.checkBoxSelectMetasploit.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxSelectMetasploit.TabIndex = 3;
-            this.checkBoxSelectMetasploit.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSelectPythonWrapper
-            // 
-            this.checkBoxSelectPythonWrapper.AutoSize = true;
-            this.checkBoxSelectPythonWrapper.Location = new System.Drawing.Point(178, 10);
-            this.checkBoxSelectPythonWrapper.Name = "checkBoxSelectPythonWrapper";
-            this.checkBoxSelectPythonWrapper.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxSelectPythonWrapper.TabIndex = 4;
-            this.checkBoxSelectPythonWrapper.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSelectNmap
-            // 
-            this.checkBoxSelectNmap.AutoSize = true;
-            this.checkBoxSelectNmap.Location = new System.Drawing.Point(178, 10);
-            this.checkBoxSelectNmap.Name = "checkBoxSelectNmap";
-            this.checkBoxSelectNmap.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxSelectNmap.TabIndex = 5;
-            this.checkBoxSelectNmap.UseVisualStyleBackColor = true;
-            // 
             // flowLayoutPanelSoftware
             // 
             this.flowLayoutPanelSoftware.AutoScroll = true;
@@ -232,6 +233,7 @@
             // groupBoxActions
             // 
             this.groupBoxActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxActions.Controls.Add(this.buttonInstallSelected);
             this.groupBoxActions.Controls.Add(this.buttonUpdate);
             this.groupBoxActions.Location = new System.Drawing.Point(193, 285);
             this.groupBoxActions.Name = "groupBoxActions";
@@ -269,6 +271,16 @@
             this.labelSelected.Size = new System.Drawing.Size(154, 17);
             this.labelSelected.TabIndex = 10;
             this.labelSelected.Text = "0 Elements selected";
+            // 
+            // buttonInstallSelected
+            // 
+            this.buttonInstallSelected.Location = new System.Drawing.Point(6, 53);
+            this.buttonInstallSelected.Name = "buttonInstallSelected";
+            this.buttonInstallSelected.Size = new System.Drawing.Size(129, 26);
+            this.buttonInstallSelected.TabIndex = 1;
+            this.buttonInstallSelected.Text = "Install Selected";
+            this.buttonInstallSelected.UseVisualStyleBackColor = true;
+            this.buttonInstallSelected.Click += new System.EventHandler(this.buttonInstallSelected_Click);
             // 
             // Installer
             // 
@@ -321,6 +333,7 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.CheckBox checkBoxSelectAll;
         private System.Windows.Forms.Label labelSelected;
+        private System.Windows.Forms.Button buttonInstallSelected;
     }
 }
 

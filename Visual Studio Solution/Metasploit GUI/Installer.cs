@@ -204,6 +204,11 @@ namespace Metasploit_GUI
             }*/
         }
 
+        private void buttonInstallSelected_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             //new Main().Show();
