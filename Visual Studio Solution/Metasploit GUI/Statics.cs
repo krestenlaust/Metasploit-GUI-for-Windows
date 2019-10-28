@@ -11,7 +11,7 @@ namespace Metasploit_GUI
         ERROR,
     }
 
-    class Statics
+    public static class Statics
     {
         /* Preferences and profiles */
         public static Dictionary<string, string> Preferences = new Dictionary<string, string>();
@@ -38,11 +38,12 @@ namespace Metasploit_GUI
         public const string DefaultScriptName = "Unnamed";
 
         /* Other publics */
-        public static System.Drawing.Color 
-            Warning_Color = System.Drawing.Color.DarkOrange, 
+        public static System.Drawing.Color Warning_Color = System.Drawing.Color.DarkOrange, 
             Error_Color = System.Drawing.Color.Red;
         public static string[] DictionaryItems;
         public static DebugWindow dbw = null;
+
+        public static CreatePayload wCreatePayload;
 
 
         public static void Print(object stdout, LOGTYPE stdtype = LOGTYPE.INFO, string LineTerminator = "")
@@ -103,8 +104,6 @@ namespace Metasploit_GUI
                 return;
 
             Dictionary<string, Dictionary<string, string>> profiles = new Dictionary<string, Dictionary<string, string>>();
-
-
 
         }
 

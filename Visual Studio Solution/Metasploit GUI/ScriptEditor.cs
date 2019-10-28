@@ -336,7 +336,7 @@ namespace Metasploit_GUI
 
         public void AddLineNumbers()
         {
-            // create & set Point pt to (0,0)    
+            // create & set Point pt to (0,0)
             Point pt = new Point(0, 0);
             // get First Index & First Line from richTextBoxCode    
             int First_Index = richTextBoxCode.GetCharIndexFromPosition(pt);
@@ -385,30 +385,11 @@ namespace Metasploit_GUI
 
         public void UpdateHistoryIndex() => showHistoryIndexToolStripMenuItem.Text = $"History({(HistoryIndex+1 > HistoryText.Count ? HistoryIndex : HistoryIndex + 1)} : {HistoryText.Count})";
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NewFile();
-        }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveAsFile();
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFile();
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFile();
-        }
-
-        private void runAsResourceScriptToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ExecuteScript();
-        }
+        private void newToolStripMenuItem_Click(object sender, EventArgs e) => NewFile();
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) => SaveAsFile();
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) => SaveFile();
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) => OpenFile();
+        private void runAsResourceScriptToolStripMenuItem_Click(object sender, EventArgs e) =>ExecuteScript();
 
         private void infobarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -477,12 +458,6 @@ namespace Metasploit_GUI
             History(HistoryType.Redo);
         }
 
-        /*
-
-        private void showHistoryIndexToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }*/
 
         private void showHistoryIndexToolStripMenuItem_Click_1(object sender, EventArgs e)
         {

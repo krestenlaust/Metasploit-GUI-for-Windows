@@ -48,12 +48,12 @@
             this.checkBoxEditableConsole = new System.Windows.Forms.CheckBox();
             this.checkBoxAutocomplete = new System.Windows.Forms.CheckBox();
             this.groupBoxAutoCompletePrefs = new System.Windows.Forms.GroupBox();
+            this.buttonRefreshDict = new System.Windows.Forms.Button();
             this.labelValue = new System.Windows.Forms.Label();
             this.buttonDictionary = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.trackBarMaxSuggestions = new System.Windows.Forms.TrackBar();
             this.toolTipOptions = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonRefreshDict = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,7 +219,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(738, 404);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // groupBox3
@@ -273,6 +273,16 @@
             this.groupBoxAutoCompletePrefs.TabStop = false;
             this.groupBoxAutoCompletePrefs.Text = "Auto-Complete Preferences";
             // 
+            // buttonRefreshDict
+            // 
+            this.buttonRefreshDict.Location = new System.Drawing.Point(6, 59);
+            this.buttonRefreshDict.Name = "buttonRefreshDict";
+            this.buttonRefreshDict.Size = new System.Drawing.Size(188, 33);
+            this.buttonRefreshDict.TabIndex = 4;
+            this.buttonRefreshDict.Text = "Refresh Dictionary";
+            this.buttonRefreshDict.UseVisualStyleBackColor = true;
+            this.buttonRefreshDict.Click += new System.EventHandler(this.buttonRefreshDict_Click);
+            // 
             // labelValue
             // 
             this.labelValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -315,16 +325,6 @@
             this.trackBarMaxSuggestions.Value = 5;
             this.trackBarMaxSuggestions.Scroll += new System.EventHandler(this.trackBarMaxSuggestions_Scroll);
             // 
-            // buttonRefreshDict
-            // 
-            this.buttonRefreshDict.Location = new System.Drawing.Point(6, 59);
-            this.buttonRefreshDict.Name = "buttonRefreshDict";
-            this.buttonRefreshDict.Size = new System.Drawing.Size(188, 33);
-            this.buttonRefreshDict.TabIndex = 4;
-            this.buttonRefreshDict.Text = "Refresh Dictionary";
-            this.buttonRefreshDict.UseVisualStyleBackColor = true;
-            this.buttonRefreshDict.Click += new System.EventHandler(this.buttonRefreshDict_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -335,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(738, 404);
             this.Controls.Add(this.flowLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

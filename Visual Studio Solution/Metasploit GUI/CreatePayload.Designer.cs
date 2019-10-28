@@ -140,7 +140,7 @@
             this.buttonBuild.TabIndex = 1;
             this.buttonBuild.Text = "Build";
             this.buttonBuild.UseVisualStyleBackColor = true;
-            this.buttonBuild.Click += new System.EventHandler(this.button2_Click);
+            this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
             // 
             // groupBox2
             // 
@@ -187,7 +187,7 @@
             this.comboBoxTargetType.Name = "comboBoxTargetType";
             this.comboBoxTargetType.Size = new System.Drawing.Size(285, 24);
             this.comboBoxTargetType.TabIndex = 0;
-            this.comboBoxTargetType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxTargetType.SelectedIndexChanged += new System.EventHandler(this.comboBoxTargetType_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -215,6 +215,7 @@
             this.comboBoxEncoders.Name = "comboBoxEncoders";
             this.comboBoxEncoders.Size = new System.Drawing.Size(259, 24);
             this.comboBoxEncoders.TabIndex = 0;
+            this.comboBoxEncoders.SelectedIndexChanged += new System.EventHandler(this.comboBoxEncoders_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -234,9 +235,9 @@
             this.buttonSelectTargetFilepath.Name = "buttonSelectTargetFilepath";
             this.buttonSelectTargetFilepath.Size = new System.Drawing.Size(134, 41);
             this.buttonSelectTargetFilepath.TabIndex = 2;
-            this.buttonSelectTargetFilepath.Text = "Select Filepath";
+            this.buttonSelectTargetFilepath.Text = "Browse...";
             this.buttonSelectTargetFilepath.UseVisualStyleBackColor = true;
-            this.buttonSelectTargetFilepath.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSelectTargetFilepath.Click += new System.EventHandler(this.buttonSelectFilepath_Click);
             // 
             // saveLocation
             // 
@@ -263,7 +264,7 @@
             this.buttonCreateListener.TabIndex = 5;
             this.buttonCreateListener.Text = "Create listener";
             this.buttonCreateListener.UseVisualStyleBackColor = true;
-            this.buttonCreateListener.Click += new System.EventHandler(this.button5_Click);
+            this.buttonCreateListener.Click += new System.EventHandler(this.buttonCreateListener_Click);
             // 
             // groupBox5
             // 

